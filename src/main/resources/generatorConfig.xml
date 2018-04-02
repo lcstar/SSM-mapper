@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="testTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/test" userId="root"
+			password="admin">
+		</jdbcConnection>
+
+		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.146.65.220:1521:edi11g" 
+			userId="EDI" password="EDIIALARM."> </jdbcConnection> -->
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 
+			和 NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="com.lc.model"
+			targetProject="./src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="com.lc.mapper"
+			targetProject="./src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.lc.mapper" targetProject="./src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- 指定数据库表 -->
+		<!-- 有些表的字段需要指定java类型 <table schema="" tableName=""> <columnOverride column="" 
+			javaType="" /> </table> -->
+
+		<!-- <table schema="INDINT" tableName="KEYSTATION_WORKERREST_LOG_T" domainObjectName="WorkerRest" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="DEL_FLAG" 
+			javaType="java.lang.Boolean" /> </table> <table schema="INDINT" tableName="KEYSTATION_WORKERINF_T" 
+			domainObjectName="WorkerInf" enableCountByExample="false" enableUpdateByExample="false" 
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"> 
+			<columnOverride column="ID" javaType="java.lang.Integer" /> <columnOverride 
+			column="GRADE" javaType="java.lang.Integer" /> <columnOverride column="DUTY_TIME" 
+			javaType="java.lang.Integer" /> <columnOverride column="DEL_FLAG" javaType="java.lang.Boolean" 
+			/> </table> -->
+		<!-- <table schema="INDINT" tableName="LOGIN_CHECK_DATA_T" domainObjectName="CheckData" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="true"> <columnOverride 
+			column="DEL_FLAG" javaType="java.lang.Boolean" /> </table> -->
+		<!-- <table schema="INDINT" tableName="KEYSTATION_VERSIONINF_T" domainObjectName="VersionInf" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="DEL_FLAG" 
+			javaType="java.lang.Boolean" /> </table> <table schema="INDINT" tableName="KEYSTATION_USER_T" 
+			domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" 
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"> 
+			<columnOverride column="ID" javaType="java.lang.Integer" /> <columnOverride 
+			column="DEL_FLAG" javaType="java.lang.Boolean" /> </table> <table schema="INDINT" 
+			tableName="KEYSTATION_USER_LOG_T" domainObjectName="UserLog" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> <columnOverride column="ID" javaType="java.lang.Integer" 
+			/> <columnOverride column="DEL_FLAG" javaType="java.lang.Boolean" /> </table> -->
+		<!-- <table schema="INDINT" tableName="KEYSTATION_STATION_T" domainObjectName="Station" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="LINE_ID" 
+			javaType="java.lang.Integer" /> <columnOverride column="IS_KEY_STATION" javaType="java.lang.Boolean" 
+			/> <columnOverride column="DEL_FLAG" javaType="java.lang.Boolean" /> </table> -->
+
+		<!-- <table schema="INDINT" tableName="KEYSTATION_SETLINE_LOG_T" domainObjectName="SetLineLog" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="DEL_FLAG" 
+			javaType="java.lang.Boolean" /> </table> -->
+
+		<!-- <table schema="INDINT" tableName="KEYSTATION_REPAIRTYPE_T" domainObjectName="RepairType" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="GRADE" 
+			javaType="java.lang.Integer" /> <columnOverride column="STATUS" javaType="java.lang.Integer" 
+			/> <columnOverride column="DEL_FLAG" javaType="java.lang.Boolean" /> </table> 
+			<table schema="INDINT" tableName="KEYSTATION_REPAIRINFO_T" domainObjectName="RepairInf" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="GRADE" 
+			javaType="java.lang.Integer" /> <columnOverride column="STATUS" javaType="java.lang.Integer" 
+			/> <columnOverride column="ERR_NUM" javaType="java.lang.Integer" /> <columnOverride 
+			column="ALL_NUM" javaType="java.lang.Integer" /> <columnOverride column="CAPACITY_LOSS" 
+			javaType="java.lang.Integer" /> <columnOverride column="TIME_LOSS" javaType="java.lang.Integer" 
+			/> <columnOverride column="DEL_FLAG" javaType="java.lang.Boolean" /> </table> -->
+
+		<!-- <table schema="INDINT" tableName="KEYSTATION_LINE_T" domainObjectName="Line" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="DEL_FLAG" 
+			javaType="java.lang.Boolean" /> </table> -->
+		<table schema="" tableName="demo"
+			domainObjectName="Demo" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<columnOverride column="id" javaType="java.lang.Integer" />
+		</table>
+		<!-- <table schema="INDINT" tableName="KEYSTATION_INSPECT_T" domainObjectName="Inspect" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> <columnOverride 
+			column="ID" javaType="java.lang.Integer" /> <columnOverride column="IS_INSPECT" 
+			javaType="java.lang.Boolean" /> <columnOverride column="DEL_FLAG" javaType="java.lang.Boolean" 
+			/> </table> -->
+
+		<!-- <table schema="EDI" tableName="ALARM_INFO" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> <columnOverride column="ID" javaType="java.lang.Integer" 
+			/> <columnOverride column="GRADE" javaType="java.lang.Integer" /> <columnOverride 
+			column="ALARMTYPE" javaType="java.lang.Integer" /> <columnOverride column="STATUS" 
+			javaType="java.lang.Integer" /> <columnOverride column="ERR_NUM" javaType="java.lang.Integer" 
+			/> <columnOverride column="ALL_NUM" javaType="java.lang.Integer" /> <columnOverride 
+			column="CAPACITY_LOSS" javaType="java.lang.Integer" /> <columnOverride column="TIME_LOSS" 
+			javaType="java.lang.Integer" /> </table> -->
+	</context>
+</generatorConfiguration>
+
+
+
+
+
+
+
+
+
+
